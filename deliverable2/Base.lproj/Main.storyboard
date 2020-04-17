@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZN-Aa-T8f">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="llA-Zb-Jag"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="V4U-e9-ZOX"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="Report" id="V4U-e9-ZOX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DA2-eh-xpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,27 +36,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JfK-cP-7xG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="CSH-xw-PSg"/>
+                    <tabBarItem key="tabBarItem" title="" image="Waiting" id="CSH-xw-PSg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVT-hZ-OSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-636" y="-503"/>
         </scene>
-        <!--Waiting-->
+        <!--User-->
         <scene sceneID="6oq-jb-blO">
             <objects>
-                <viewController title="Waiting" id="peT-eK-8w1" sceneMemberID="viewController">
+                <viewController title="User" id="peT-eK-8w1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ES3-Rd-uFw">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="73f-zq-vli"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 3" id="38H-Ra-GUA"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="Add" id="38H-Ra-GUA"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lC-Dy-5gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-636" y="138"/>
+            <point key="canvasLocation" x="-637" y="161"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="B9k-ay-Ty7">
@@ -69,6 +70,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="uTy-7m-LV1" kind="relationship" relationship="viewControllers" id="efs-wf-Xcw"/>
+                        <segue destination="peT-eK-8w1" kind="relationship" relationship="viewControllers" id="Cjl-U1-U8t"/>
                         <segue destination="qnM-La-Mby" kind="relationship" relationship="viewControllers" id="Kjt-YV-ZiP"/>
                     </connections>
                 </tabBarController>
@@ -77,4 +79,9 @@
             <point key="canvasLocation" x="-1388" y="98"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add" width="50" height="50"/>
+        <image name="Report" width="50" height="50"/>
+        <image name="Waiting" width="50" height="50"/>
+    </resources>
 </document>
