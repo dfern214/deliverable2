@@ -15,6 +15,7 @@
 		6D585E60244946A3000C6E34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D585E5E244946A3000C6E34 /* LaunchScreen.storyboard */; };
 		6D585E6B244946A3000C6E34 /* deliverable2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D585E6A244946A3000C6E34 /* deliverable2Tests.swift */; };
 		6D585E76244946A3000C6E34 /* deliverable2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D585E75244946A3000C6E34 /* deliverable2UITests.swift */; };
+		6D585E8624495356000C6E34 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D585E8524495356000C6E34 /* CoreData.swift */; };
 		F99F408424494A2600F93A62 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F408324494A2600F93A62 /* Test.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		6D585E71244946A3000C6E34 /* deliverable2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deliverable2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D585E75244946A3000C6E34 /* deliverable2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deliverable2UITests.swift; sourceTree = "<group>"; };
 		6D585E77244946A3000C6E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D585E8524495356000C6E34 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = ../CoreData.swift; sourceTree = "<group>"; };
 		F99F408324494A2600F93A62 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 			children = (
 				6D585E52244946A3000C6E34 /* AppDelegate.swift */,
 				6D585E54244946A3000C6E34 /* ViewController.swift */,
+				6D585E8524495356000C6E34 /* CoreData.swift */,
 				6D585E56244946A3000C6E34 /* Main.storyboard */,
 				6D585E5C244946A3000C6E34 /* Assets.xcassets */,
 				6D585E5E244946A3000C6E34 /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 				F99F408424494A2600F93A62 /* Test.swift in Sources */,
 				6D585E55244946A3000C6E34 /* ViewController.swift in Sources */,
 				6D585E53244946A3000C6E34 /* AppDelegate.swift in Sources */,
+				6D585E8624495356000C6E34 /* CoreData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
