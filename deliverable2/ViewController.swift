@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
+    var coreData = CoreData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        coreData.insertNewObject(first: "Dylan", last: "Fernandez", birthday: Date())
+        
     }
-
-
+    
+    
 }
 
