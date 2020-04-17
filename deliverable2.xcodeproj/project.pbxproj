@@ -16,7 +16,9 @@
 		6D585E6B244946A3000C6E34 /* deliverable2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D585E6A244946A3000C6E34 /* deliverable2Tests.swift */; };
 		6D585E76244946A3000C6E34 /* deliverable2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D585E75244946A3000C6E34 /* deliverable2UITests.swift */; };
 		6D585E8624495356000C6E34 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D585E8524495356000C6E34 /* CoreData.swift */; };
-		F99F408424494A2600F93A62 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F408324494A2600F93A62 /* Test.swift */; };
+		F99F4088244969BD00F93A62 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F4087244969BD00F93A62 /* WaitingViewController.swift */; };
+		F99F408A244969D800F93A62 /* UserFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F4089244969D800F93A62 /* UserFormViewController.swift */; };
+		F99F408C244969E800F93A62 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99F408B244969E800F93A62 /* ReportViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,9 @@
 		6D585E75244946A3000C6E34 /* deliverable2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deliverable2UITests.swift; sourceTree = "<group>"; };
 		6D585E77244946A3000C6E34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D585E8524495356000C6E34 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoreData.swift; path = ../CoreData.swift; sourceTree = "<group>"; };
-		F99F408324494A2600F93A62 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		F99F4087244969BD00F93A62 /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+		F99F4089244969D800F93A62 /* UserFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFormViewController.swift; sourceTree = "<group>"; };
+		F99F408B244969E800F93A62 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +115,9 @@
 				6D585E5E244946A3000C6E34 /* LaunchScreen.storyboard */,
 				6D585E61244946A3000C6E34 /* Info.plist */,
 				6D585E59244946A3000C6E34 /* deliverable2.xcdatamodeld */,
-				F99F408324494A2600F93A62 /* Test.swift */,
+				F99F4087244969BD00F93A62 /* WaitingViewController.swift */,
+				F99F4089244969D800F93A62 /* UserFormViewController.swift */,
+				F99F408B244969E800F93A62 /* ReportViewController.swift */,
 			);
 			path = deliverable2;
 			sourceTree = "<group>";
@@ -265,11 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99F4088244969BD00F93A62 /* WaitingViewController.swift in Sources */,
 				6D585E5B244946A3000C6E34 /* deliverable2.xcdatamodeld in Sources */,
-				F99F408424494A2600F93A62 /* Test.swift in Sources */,
 				6D585E55244946A3000C6E34 /* ViewController.swift in Sources */,
 				6D585E53244946A3000C6E34 /* AppDelegate.swift in Sources */,
 				6D585E8624495356000C6E34 /* CoreData.swift in Sources */,
+				F99F408A244969D800F93A62 /* UserFormViewController.swift in Sources */,
+				F99F408C244969E800F93A62 /* ReportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
