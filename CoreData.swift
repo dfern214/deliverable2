@@ -5,7 +5,7 @@
 //  Created by Dylan Fernandez on 4/16/20.
 //  Copyright © 2020 Dylan Fernandez. All rights reserved.
 //
-
+/*
 import UIKit
 import CoreData
 
@@ -90,3 +90,4 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
     }
 }
+ */

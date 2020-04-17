@@ -6,4 +6,19 @@
 //  Copyright © 2020 Dylan Fernandez. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreData
+
+class UserFormViewController: UIViewController {
+    
+  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+    }
+    
+    
+}

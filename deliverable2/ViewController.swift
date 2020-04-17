@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+/*
 class ViewController: UIViewController {
 
     var coreData = CoreData()
@@ -22,4 +22,4 @@ class ViewController: UIViewController {
     
     
 }
-
+*/
