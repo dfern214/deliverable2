@@ -11,6 +11,8 @@ import CoreData
 
 class ReportViewController: UIViewController {
     
+    var coreData = CoreData.shared
+    
     @IBOutlet weak var lblDaily: UILabel!
     @IBOutlet weak var lblMale: UILabel!
     @IBOutlet weak var lblFemale: UILabel!
@@ -20,11 +22,81 @@ class ReportViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //test()
+        
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        calculations()
+        
+    }
+    
+    func test()
+    {
+        let birthDate = Date().addingTimeInterval(-93113904)
+        let today = Date()
+        
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: birthDate, to: today)
+        
+        let age = components.year
+        
+        lblDaily.text = "\(age!)"
+    }
+    
+    func calculations()
+    {
+        var dailyTotal = 0
+        var weeklyTotal = 0
+        var maleTotal = 0
+        var femaleTotal = 0
+        var ageTemp = 0
+        
+        var deliCount = 0
+        while deliCount < coreData.getAll().count
+        {
+            let deliPath = IndexPath(row: deliCount, section: 0)
+            let deliverable = coreData.fetchedResultsController.object(at: deliPath)
+            
+           // if let signin = deliverable.timeIn! {
+                
+            
+            
+            if deliverable.timeIn!  > Date().addingTimeInterval(-86400)
+           {
+            dailyTotal = dailyTotal + 1
+            }
+            if deliverable.timeIn! > Date().addingTimeInterval(-604800)
+            {
+                weeklyTotal = weeklyTotal + 1
+            }
+            if deliverable.gender == "Male"
+            {
+                maleTotal = maleTotal + 1
+            }
+            if deliverable.gender == "Female"
+            {
+                femaleTotal = femaleTotal + 1
+            }
+            
+            let age = Calendar.current.dateComponents([.year, .month, .day], from: deliverable.birthdate!, to: Date()).year
+            
+            ageTemp = ageTemp + age!
+           // }
+            deliCount = deliCount + 1
+        }
+        
+        let ageAvg = ageTemp / deliCount
+        
+        lblDaily.text = "\(dailyTotal)"
+        lblMale.text = "\(maleTotal)"
+        lblFemale.text = "\(femaleTotal)"
+        lblWeekly.text = "\(weeklyTotal)"
+        lblAvgAge.text = "\(ageAvg)"
+       // let deliverable = coreData.fetchedResultsController.object(at: <#T##IndexPath#>)
         
     }
     
