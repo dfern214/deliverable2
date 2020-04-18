@@ -15,6 +15,12 @@ class ClientCell: UITableViewCell {
     @IBOutlet weak var checkIn: UIButton!
 }
 
+class HeaderCell: UITableViewCell {
+    @IBOutlet weak var nameTitle: UIButton!
+    @IBOutlet weak var timeTitle: UIButton!
+    @IBOutlet weak var placeTitle: UIButton!
+}
+
 class WaitingListViewController: UITableViewController {
     
     var coreData = CoreData.shared
@@ -23,6 +29,17 @@ class WaitingListViewController: UITableViewController {
      return coreData.fetchedResultsController.sections?.count ?? 0
      }
      */
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+        
+        headerCell.nameTitle.setTitle("Name", for: .normal)
+        headerCell.placeTitle.setTitle("Place", for: .normal)
+        headerCell.timeTitle.setTitle("Time Remaining", for: .normal)
+        
+        return headerCell
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return coreData.getAll().count - 1
     }
@@ -37,7 +54,7 @@ class WaitingListViewController: UITableViewController {
     func configureCell(_ cell: ClientCell, withDeliverable deliverable: Deliverable, indexPath: IndexPath) {
         //let item = deliverable.id.description + "\t" + " | " + "\t" + deliverable.firstName! + "\t" + " | " + "\t" + deliverable.lastName! + "\t"
         cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
-        cell.place?.text = String(indexPath.row)
+        cell.place?.text = String(indexPath.row + 1)
         cell.time?.text = "test"
     }
     /*

@@ -40,33 +40,81 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClientCell" id="VXM-fX-qFR" customClass="ClientCell" customModule="deliverable2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" id="VXM-fX-qFR" customClass="HeaderCell" customModule="deliverable2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="84" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VXM-fX-qFR" id="Vk9-he-49E">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biP-QJ-bMR">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-p9-tcs">
+                                            <rect key="frame" x="97" y="7" width="41" height="31"/>
+                                            <state key="normal" title="Name">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LM8-AO-P5G">
+                                            <rect key="frame" x="518" y="6" width="134" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="134" id="NAN-m5-TxZ"/>
+                                            </constraints>
+                                            <state key="normal" title="Time Till Turn">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmE-zz-4vL">
+                                            <rect key="frame" x="20" y="6" width="38" height="32"/>
+                                            <state key="normal" title="Place">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tmE-zz-4vL" firstAttribute="leading" secondItem="Vk9-he-49E" secondAttribute="leadingMargin" id="DRt-MY-WF4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LM8-AO-P5G" secondAttribute="trailing" constant="96" id="HVW-8f-LeQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="jwe-p9-tcs" secondAttribute="bottom" constant="-5" id="OzF-hk-efH"/>
+                                        <constraint firstItem="tmE-zz-4vL" firstAttribute="centerY" secondItem="jwe-p9-tcs" secondAttribute="centerY" id="P3N-Oc-N09"/>
+                                        <constraint firstItem="LM8-AO-P5G" firstAttribute="centerY" secondItem="Vk9-he-49E" secondAttribute="centerY" id="dam-2e-ceK"/>
+                                        <constraint firstItem="tmE-zz-4vL" firstAttribute="top" secondItem="jwe-p9-tcs" secondAttribute="top" constant="-1" id="dhy-zw-hCc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="LM8-AO-P5G" secondAttribute="bottom" constant="-3" id="gwA-BU-XCI"/>
+                                        <constraint firstItem="jwe-p9-tcs" firstAttribute="centerY" secondItem="Vk9-he-49E" secondAttribute="centerY" id="qG4-0a-jvK"/>
+                                        <constraint firstItem="jwe-p9-tcs" firstAttribute="leading" secondItem="tmE-zz-4vL" secondAttribute="trailing" constant="39" id="qST-6V-7xf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.16057661179999999" green="0.16612252590000001" blue="0.18733260039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="nameTitle" destination="jwe-p9-tcs" id="Wqb-q4-SIr"/>
+                                    <outlet property="placeTitle" destination="tmE-zz-4vL" id="5qu-jd-CX0"/>
+                                    <outlet property="timeTitle" destination="LM8-AO-P5G" id="dZT-cs-SIG"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClientCell" id="6o6-ZX-ZUf" customClass="ClientCell" customModule="deliverable2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="128" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6o6-ZX-ZUf" id="fav-80-3Uw">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW0-Ui-svf">
                                             <rect key="frame" x="29" y="11" width="42" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07V-Ft-g4B">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TotalTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NE-tG-x3l">
                                             <rect key="frame" x="544" y="11" width="75" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccv-5K-OIV">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60Q-ap-OUf">
                                             <rect key="frame" x="673" y="6" width="62" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Check-in"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3R-hy-DfN">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKE-Ib-yD4">
                                             <rect key="frame" x="99" y="11" width="413" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -76,10 +124,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkIn" destination="ccv-5K-OIV" id="3cd-Fh-r5y"/>
-                                    <outlet property="name" destination="X3R-hy-DfN" id="1Iq-e7-26P"/>
-                                    <outlet property="place" destination="biP-QJ-bMR" id="jSp-ex-mak"/>
-                                    <outlet property="time" destination="07V-Ft-g4B" id="gjM-ub-xqI"/>
+                                    <outlet property="checkIn" destination="60Q-ap-OUf" id="xFW-fY-pIb"/>
+                                    <outlet property="name" destination="vKE-Ib-yD4" id="gAG-hH-Vza"/>
+                                    <outlet property="place" destination="tW0-Ui-svf" id="16K-Op-bxN"/>
+                                    <outlet property="time" destination="0NE-tG-x3l" id="MsS-rI-u7z"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
