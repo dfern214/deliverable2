@@ -8,6 +8,13 @@
 
 import UIKit
 
+class ClientCell: UITableViewCell {
+    @IBOutlet weak var place: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var checkIn: UIButton!
+}
+
 class WaitingListViewController: UITableViewController {
     
     var coreData = CoreData.shared
@@ -21,16 +28,17 @@ class WaitingListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
         let deliverable = coreData.fetchedResultsController.object(at: indexPath)
-        configureCell(cell, withDeliverable: deliverable)
+        configureCell(cell, withDeliverable: deliverable, indexPath: indexPath)
         return cell
     }
     
-    func configureCell(_ cell: UITableViewCell, withDeliverable deliverable: Deliverable) {
-        let item = deliverable.id.description + "\t" + " | " + "\t" + deliverable.firstName! + "\t" + " | " + "\t" + deliverable.lastName! + "\t"
-        
-        cell.textLabel?.text = item
+    func configureCell(_ cell: ClientCell, withDeliverable deliverable: Deliverable, indexPath: IndexPath) {
+        //let item = deliverable.id.description + "\t" + " | " + "\t" + deliverable.firstName! + "\t" + " | " + "\t" + deliverable.lastName! + "\t"
+        cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
+        cell.place?.text = String(indexPath.row)
+        cell.time?.text = "test"
     }
     /*
      func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

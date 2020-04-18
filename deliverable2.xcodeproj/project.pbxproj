@@ -110,17 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				6D585E52244946A3000C6E34 /* AppDelegate.swift */,
-				6D585E54244946A3000C6E34 /* ViewController.swift */,
-				6D585E89244A9B25000C6E34 /* TableViewController.swift */,
 				6D585E8524495356000C6E34 /* CoreData.swift */,
+				6D585E54244946A3000C6E34 /* ViewController.swift */,
+				F99F4089244969D800F93A62 /* UserFormViewController.swift */,
+				F99F408B244969E800F93A62 /* ReportViewController.swift */,
+				F99F4087244969BD00F93A62 /* WaitingViewController.swift */,
 				6D585E56244946A3000C6E34 /* Main.storyboard */,
 				6D585E5C244946A3000C6E34 /* Assets.xcassets */,
 				6D585E5E244946A3000C6E34 /* LaunchScreen.storyboard */,
 				6D585E61244946A3000C6E34 /* Info.plist */,
 				6D585E59244946A3000C6E34 /* deliverable2.xcdatamodeld */,
-				F99F4087244969BD00F93A62 /* WaitingViewController.swift */,
-				F99F4089244969D800F93A62 /* UserFormViewController.swift */,
-				F99F408B244969E800F93A62 /* ReportViewController.swift */,
+				6D585E89244A9B25000C6E34 /* TableViewController.swift */,
 			);
 			path = deliverable2;
 			sourceTree = "<group>";
