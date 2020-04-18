@@ -86,6 +86,7 @@ class ReportViewController: UIViewController {
             let age = Calendar.current.dateComponents([.year, .month, .day], from: deliverable.birthdate!, to: Date()).year
             
             ageTemp = ageTemp + age!
+            //lblAvgAge.text = "\(deliverable.birthdate!)"
            // }
             deliCount = deliCount + 1
         }

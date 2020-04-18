@@ -35,7 +35,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
         
         fetchRequest.fetchBatchSize = 20
         
-        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
