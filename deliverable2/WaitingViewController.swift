@@ -80,12 +80,14 @@ class WaitingListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
         let deliverable = coreData.fetchedResultsController.object(at: indexPath)
         
-        configureCell(cell, withDeliverable: deliverable, indexPath: indexPath)
+        print()
+        
+        configureCell(cell, deliverable: deliverable, indexPath: indexPath)
         
         return cell
     }
     
-    func configureCell(_ cell: ClientCell, withDeliverable deliverable: Deliverable, indexPath: IndexPath) {
+    func configureCell(_ cell: ClientCell, deliverable: Deliverable, indexPath: IndexPath) {
         cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
         cell.place?.text = String(indexPath.row + 1)
         cell.time?.text = "test"

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
+class CoreData: NSObject, NSFetchedResultsControllerDelegate {
     
     static let shared = CoreData()
     
@@ -23,8 +23,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
     }
     
     var fetchedResultsController: NSFetchedResultsController<Deliverable> {
-        
-        
         if _fetchedResultsController != nil {
             return _fetchedResultsController!
         }
@@ -37,7 +35,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         fetchRequest.fetchBatchSize = 20
         
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -54,8 +52,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         return _fetchedResultsController!
     }
-    
-    
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
@@ -187,6 +183,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         do {
             try context.execute(batchDeleteRequest)
+            try context.save()
         } catch let error {
             print("Could not fetch \(error.localizedDescription)")
         }

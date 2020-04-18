@@ -35,8 +35,8 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // testing
         
         var name: Int16 = 0
-        //coreData.removeAll()
-        //coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date(), gender: "Male")
+        coreData.removeAll()
+        coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date(), gender: "Male")
         name = coreData.getId()
         test?.text = name.description
     }
