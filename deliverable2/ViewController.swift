@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+/*
 class ViewController: UIViewController {
 
     var coreData = CoreData.shared
@@ -27,4 +27,4 @@ class ViewController: UIViewController {
         label.text = name.description
     }
 }
-
+*/
