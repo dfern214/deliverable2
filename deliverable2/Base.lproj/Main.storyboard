@@ -136,7 +136,7 @@
                             <outlet property="delegate" destination="xZL-fa-2oO" id="eh3-HE-sb4"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="7Fa-MI-Utd"/>
+                    <tabBarItem key="tabBarItem" title="" image="Waiting" id="7Fa-MI-Utd"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRf-rb-Ofr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,5 +271,6 @@
     <resources>
         <image name="Add" width="50" height="50"/>
         <image name="Report" width="50" height="50"/>
+        <image name="Waiting" width="50" height="50"/>
     </resources>
 </document>
