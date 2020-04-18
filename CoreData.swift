@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
+class CoreData: NSObject, NSFetchedResultsControllerDelegate {
     
     static let shared = CoreData()
     
@@ -23,8 +23,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
     }
     
     var fetchedResultsController: NSFetchedResultsController<Deliverable> {
-        
-        
         if _fetchedResultsController != nil {
             return _fetchedResultsController!
         }
@@ -54,8 +52,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         return _fetchedResultsController!
     }
-    
-    
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         

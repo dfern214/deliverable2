@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        //let tableViewController = self.window!.rootViewController as! WaitingListViewController
+        //tableViewController.managedObjectContext = self.persistentContainer.viewContext
+        
         return true
     }
 
