@@ -37,16 +37,12 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         let fetchRequest: NSFetchRequest<Deliverable> = Deliverable.fetchRequest()
         
-        // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
         
-        // Edit the sort key as appropriate.
         let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        // Edit the section name key path and cache name if appropriate.
-        // nil for section name key path means "no sections".
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "Deliverable")
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
@@ -54,8 +50,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         do {
             try _fetchedResultsController!.performFetch()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
@@ -72,25 +66,46 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
     // Core Data
     
     func insertNewObject(first: String, last: String, birthday: Date, gender: String) {
+        
+        var test: Bool = false
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let persistentContainer = appDelegate.persistentContainer
         let context = persistentContainer.viewContext
-        let newDeliverable = Deliverable(context: context)
         
-        // If appropriate, configure the new managed object.
-        newDeliverable.id = idCounter.advanced(by: 1)
-        newDeliverable.firstName = first
-        newDeliverable.lastName = last
-        newDeliverable.birthdate = birthday
-        newDeliverable.gender = gender
+        let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
         
+        // check to see if customer exists, and if they do add them to checkin pool
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            for i in results {
+                if i.firstName == first && i.lastName == last && i.birthdate == birthday && i.gender == gender {
+                    i.isIn = true
+                    test = true
+                }
+            }
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+        }
+        
+        // if not add them
+        
+        if test {
+            let newDeliverable = Deliverable(context: context)
+            
+            // If appropriate, configure the new managed object.
+            newDeliverable.isIn = true
+            newDeliverable.id = idCounter.advanced(by: 1)
+            newDeliverable.firstName = first
+            newDeliverable.lastName = last
+            newDeliverable.birthdate = birthday
+            newDeliverable.gender = gender
+        }
         
         // Save the context.
         do {
             try context.save()
         } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
