@@ -11,15 +11,20 @@ import CoreData
 
 class ViewController: UIViewController {
 
-    var coreData = CoreData()
+    var coreData = CoreData.shared
+    
+    @IBOutlet var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        coreData.insertNewObject(first: "Dylan", last: "Fernandez", birthday: Date())
+        var object: Deliverable? = nil
+        var name = 0
         
+        coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date())
+        object = coreData.retrieveObject(customerId: 1)
+        name = coreData.getAll().count
+        label.text = name.description
     }
-    
-    
 }
 

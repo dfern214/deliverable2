@@ -11,8 +11,16 @@ import CoreData
 
 class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
     
-    var managedObjectContext: NSManagedObjectContext? = nil
+    static let shared = CoreData()
+    
+    var idCounter: Int16 = 0
     var _fetchedResultsController: NSFetchedResultsController<Deliverable>? = nil
+    
+    
+    override init() {
+        super.init()
+        idCounter = getId()
+    }
     
     // MARK: - Fetched results controller
     
@@ -33,7 +41,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "first", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -70,6 +78,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         let newDeliverable = Deliverable(context: context)
         
         // If appropriate, configure the new managed object.
+        newDeliverable.id = idCounter.advanced(by: 1)
         newDeliverable.firstName = first
         newDeliverable.lastName = last
         newDeliverable.birthdate = birthday
@@ -85,8 +94,70 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
-    
-    func retrieveObject(first: String, last: String) {
+
+    func retrieveObject(customerId: Int) -> Deliverable {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let persistentContainer = appDelegate.persistentContainer
+        let context = persistentContainer.viewContext
         
+        var customer = Deliverable(context: context)
+        
+        
+        let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            for i in results {
+                if i.id == customerId {
+                    customer = i
+                }
+            }
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+        }
+        
+        return customer
+    }
+    
+    func getId() -> Int16 {
+        var largestId: Int16 = 0
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let persistentContainer = appDelegate.persistentContainer
+        let context = persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            for i in results {
+                if (i.id > largestId) {
+                    largestId = i.id
+                }
+            }
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+        }
+        
+        return largestId
+    }
+    
+    func getAll() -> [Any] {
+        var objects: [Deliverable] = []
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let persistentContainer = appDelegate.persistentContainer
+        let context = persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            objects = results
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+        }
+        
+        return objects
     }
 }
