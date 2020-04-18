@@ -37,7 +37,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         fetchRequest.fetchBatchSize = 20
         
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -187,6 +187,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         do {
             try context.execute(batchDeleteRequest)
+            try context.save()
         } catch let error {
             print("Could not fetch \(error.localizedDescription)")
         }

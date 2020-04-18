@@ -61,15 +61,16 @@ class ReportViewController: UIViewController {
             let deliPath = IndexPath(row: deliCount, section: 0)
             let deliverable = coreData.fetchedResultsController.object(at: deliPath)
             
+            
            // if let signin = deliverable.timeIn! {
                 
             
             
-            if deliverable.timeIn!  > Date().addingTimeInterval(-86400)
+            if deliverable.timeIn ?? Date()  > Date().addingTimeInterval(-86400)
            {
             dailyTotal = dailyTotal + 1
             }
-            if deliverable.timeIn! > Date().addingTimeInterval(-604800)
+            if deliverable.timeIn ?? Date() > Date().addingTimeInterval(-604800)
             {
                 weeklyTotal = weeklyTotal + 1
             }
