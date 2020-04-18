@@ -88,7 +88,7 @@
                             <outlet property="delegate" destination="xZL-fa-2oO" id="eh3-HE-sb4"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="7Fa-MI-Utd"/>
+                    <tabBarItem key="tabBarItem" title="" image="Waiting" id="7Fa-MI-Utd"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRf-rb-Ofr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -103,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New User" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oip-HP-hWl">
-                                <rect key="frame" x="322" y="53" width="127" height="36"/>
+                                <rect key="frame" x="300" y="53" width="168" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
@@ -124,45 +124,68 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29C-oy-B0T">
-                                <rect key="frame" x="292" y="171" width="33" height="21"/>
+                                <rect key="frame" x="421" y="172" width="33" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-gv-kdl">
-                                <rect key="frame" x="110" y="201" width="97" height="30"/>
+                                <rect key="frame" x="110" y="201" width="272" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHX-yc-qfg">
-                                <rect key="frame" x="292" y="200" width="97" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="23" translatesAutoresizingMaskIntoConstraints="NO" id="pHX-yc-qfg">
+                                <rect key="frame" x="421" y="201" width="249" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KK6-vo-5r3">
-                                <rect key="frame" x="20" y="269" width="728" height="135"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KK6-vo-5r3">
+                                <rect key="frame" x="110" y="322" width="369" height="87"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="608792692.46896398">
                                     <!--2020-04-17 05:04:52 +0000-->
                                 </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-3187256400">
+                                    <!--1900-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="599482800">
+                                    <!--2019-12-31 11:00:00 +0000-->
+                                </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="M/F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVw-9a-tB4">
-                                <rect key="frame" x="498" y="172" width="30" height="21"/>
+                                <rect key="frame" x="543" y="293" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hcd-3J-geX">
-                                <rect key="frame" x="498" y="200" width="98" height="30"/>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Guw-2X-dv6">
+                                <rect key="frame" x="543" y="322" width="127" height="87"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Your Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAG-gW-2HP">
+                                <rect key="frame" x="110" y="293" width="169" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Select Gender"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x2-Kq-Hna">
+                                <rect key="frame" x="528" y="869" width="150" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mK-qD-LYX">
+                                <rect key="frame" x="110" y="870" width="150" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="Cancel"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,6 +193,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="" image="Add" id="38H-Ra-GUA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bdayPicker" destination="KK6-vo-5r3" id="B6R-Zm-1kg"/>
+                        <outlet property="btnCancel" destination="6mK-qD-LYX" id="txZ-s8-7Pi"/>
+                        <outlet property="btnSave" destination="5x2-Kq-Hna" id="Pgu-Do-HIz"/>
+                        <outlet property="gengerPicker" destination="Guw-2X-dv6" id="vnB-E8-25l"/>
+                        <outlet property="txtFirstName" destination="zv2-gv-kdl" id="WTK-ev-oh8"/>
+                        <outlet property="txtLastName" destination="pHX-yc-qfg" id="Kk5-KE-JfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lC-Dy-5gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,9 +216,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="xZL-fa-2oO" kind="relationship" relationship="viewControllers" id="h5n-sJ-TYh"/>
                         <segue destination="peT-eK-8w1" kind="relationship" relationship="viewControllers" id="Cjl-U1-U8t"/>
                         <segue destination="qnM-La-Mby" kind="relationship" relationship="viewControllers" id="Kjt-YV-ZiP"/>
-                        <segue destination="xZL-fa-2oO" kind="relationship" relationship="viewControllers" id="h5n-sJ-TYh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqm-zP-NAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,5 +229,6 @@
     <resources>
         <image name="Add" width="50" height="50"/>
         <image name="Report" width="50" height="50"/>
+        <image name="Waiting" width="50" height="50"/>
     </resources>
 </document>

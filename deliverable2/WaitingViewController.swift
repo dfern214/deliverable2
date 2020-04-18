@@ -51,10 +51,14 @@ class WaitingListViewController: UITableViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
