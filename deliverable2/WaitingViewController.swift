@@ -86,8 +86,6 @@ class WaitingListViewController: UITableViewController {
     }
     
     func configureCell(_ cell: ClientCell, withDeliverable deliverable: Deliverable, indexPath: IndexPath) {
-        //let item = deliverable.id.description + "\t" + " | " + "\t" + deliverable.firstName! + "\t" + " | " + "\t" + deliverable.lastName! + "\t"
-        //if deliverable.isIn {
         cell.name!.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
         cell.place?.text = String(indexPath.row + 1)
         cell.time?.text = "test"
@@ -96,40 +94,7 @@ class WaitingListViewController: UITableViewController {
             return newCell
         }*/
     }
-    /*
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
     
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        switch type {
-        case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-        case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-        default:
-            return
-        }
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
-        case .update:
-            configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
-        case .move:
-            configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
-        }
-    }
-     
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    */
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(ClientCell.self as AnyClass, forCellReuseIdentifier: "cell")
