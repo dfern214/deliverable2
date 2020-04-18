@@ -71,7 +71,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
     
     // Core Data
     
-    func insertNewObject(first: String, last: String, birthday: Date) {
+    func insertNewObject(first: String, last: String, birthday: Date, gender: String) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let persistentContainer = appDelegate.persistentContainer
         let context = persistentContainer.viewContext
@@ -82,6 +82,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         newDeliverable.firstName = first
         newDeliverable.lastName = last
         newDeliverable.birthdate = birthday
+        newDeliverable.gender = gender
         
         
         // Save the context.
@@ -159,5 +160,22 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         }
         
         return objects
+    }
+    
+    func removeAll() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let persistentContainer = appDelegate.persistentContainer
+        let context = persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            for i in results {
+                context.delete(i)
+            }
+        } catch let error {
+            print("Could not fetch \(error.localizedDescription)")
+        }
     }
 }

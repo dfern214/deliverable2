@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-/*
+
 class ViewController: UIViewController {
 
     var coreData = CoreData.shared
@@ -18,13 +18,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var object: Deliverable? = nil
         var name = 0
         
-        coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date())
-        object = coreData.retrieveObject(customerId: 1)
+        coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date(), gender: "Male")
         name = coreData.getAll().count
         label.text = name.description
     }
 }
-*/
+

@@ -222,6 +222,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5m-C1-oJ8">
+                                <rect key="frame" x="128" y="194" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="73f-zq-vli"/>
@@ -234,6 +241,7 @@
                         <outlet property="gender" destination="9GS-Xa-NJh" id="fTz-Jd-GtB"/>
                         <outlet property="lastBox" destination="pHX-yc-qfg" id="zvQ-bf-SYn"/>
                         <outlet property="submitButton" destination="DbN-7b-gNM" id="WXD-9Y-MuM"/>
+                        <outlet property="test" destination="V5m-C1-oJ8" id="sGf-CV-MEG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lC-Dy-5gW" userLabel="First Responder" sceneMemberID="firstResponder"/>

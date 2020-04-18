@@ -11,13 +11,15 @@ import CoreData
 
 class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    var coreData = CoreData.shared
     var data: [String] = [String]()
     
-    @IBOutlet var firstBox: UITextField!
-    @IBOutlet var lastBox: UITextField!
-    @IBOutlet var gender: UIPickerView!
-    @IBOutlet var dateOfBirth: UIDatePicker!
-    @IBOutlet var submitButton: UIButton!
+    @IBOutlet weak var firstBox: UITextField!
+    @IBOutlet weak var lastBox: UITextField!
+    @IBOutlet weak var gender: UIPickerView!
+    @IBOutlet weak var dateOfBirth: UIDatePicker!
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var test: UILabel!
     
     @IBAction func submitPress(_sender: UIButton) {
         
@@ -28,6 +30,15 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.gender.delegate = self
         self.gender.dataSource = self
         data = ["Male","Female"]
+        
+        
+        // testing
+        
+        var name = 0
+        //coreData.removeAll()
+        //coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date(), gender: "Male")
+        name = coreData.getAll().count
+        test?.text = name.description
     }
     
     override func didReceiveMemoryWarning() {
