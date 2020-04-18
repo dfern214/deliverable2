@@ -86,7 +86,7 @@ class WaitingListViewController: UITableViewController {
     }
     
     func configureCell(_ cell: ClientCell, withDeliverable deliverable: Deliverable, indexPath: IndexPath) {
-        cell.name!.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
+        cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
         cell.place?.text = String(indexPath.row + 1)
         cell.time?.text = "test"
         /*} else {
