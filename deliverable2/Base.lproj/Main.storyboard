@@ -113,6 +113,9 @@
                                             <rect key="frame" x="673" y="6" width="62" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Check-in"/>
+                                            <connections>
+                                                <action selector="buttonPressWithSender:" destination="6o6-ZX-ZUf" eventType="touchUpInside" id="ioB-sj-fop"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKE-Ib-yD4">
                                             <rect key="frame" x="99" y="11" width="413" height="21"/>
@@ -124,11 +127,19 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="checkIn" destination="60Q-ap-OUf" id="xFW-fY-pIb"/>
+                                    <outlet property="checkInButton" destination="60Q-ap-OUf" id="ogs-uw-UDf"/>
                                     <outlet property="name" destination="vKE-Ib-yD4" id="gAG-hH-Vza"/>
                                     <outlet property="place" destination="tW0-Ui-svf" id="16K-Op-bxN"/>
                                     <outlet property="time" destination="0NE-tG-x3l" id="MsS-rI-u7z"/>
                                 </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyCell" id="HoF-pC-pVs" customClass="ClientCell" customModule="deliverable2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="172" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HoF-pC-pVs" id="cf3-zS-GiM">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>

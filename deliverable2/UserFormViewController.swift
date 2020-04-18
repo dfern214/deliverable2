@@ -21,7 +21,7 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var test: UILabel!
     
-    @IBAction func submitPress(_sender: UIButton) {
+    @IBAction func submitPress(sender: UIButton) {
         
     }
     
@@ -34,10 +34,10 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // testing
         
-        var name = 0
+        var name: Int16 = 0
         //coreData.removeAll()
         //coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date(), gender: "Male")
-        name = coreData.getAll().count
+        name = coreData.getId()
         test?.text = name.description
     }
     

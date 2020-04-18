@@ -22,8 +22,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         idCounter = getId()
     }
     
-    // MARK: - Fetched results controller
-    
     var fetchedResultsController: NSFetchedResultsController<Deliverable> {
         
         
@@ -67,7 +65,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
     
     func insertNewObject(first: String, last: String, birthday: Date, gender: String) {
         
-        var test: Bool = false
+        var test: Bool = true
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let persistentContainer = appDelegate.persistentContainer
         let context = persistentContainer.viewContext
@@ -75,26 +73,26 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
         
         // check to see if customer exists, and if they do add them to checkin pool
-        
+        /*
         do {
             let results = try context.fetch(fetchRequest)
             for i in results {
                 if i.firstName == first && i.lastName == last && i.birthdate == birthday && i.gender == gender {
                     i.isIn = true
-                    test = true
+                    test = false
                 }
             }
         } catch let error {
             print("Could not fetch \(error.localizedDescription)")
         }
-        
+        */
         // if not add them
         
         if test {
             let newDeliverable = Deliverable(context: context)
             
             // If appropriate, configure the new managed object.
-            newDeliverable.isIn = true
+            //newDeliverable.isIn = true
             newDeliverable.id = idCounter.advanced(by: 1)
             newDeliverable.firstName = first
             newDeliverable.lastName = last
@@ -117,7 +115,6 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         let context = persistentContainer.viewContext
         
         var customer = Deliverable(context: context)
-        
         
         let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
         
@@ -146,6 +143,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         
         do {
             let results = try context.fetch(fetchRequest)
+            print(results.count.description)
             for i in results {
                 if (i.id > largestId) {
                     largestId = i.id
@@ -182,13 +180,13 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate  {
         let persistentContainer = appDelegate.persistentContainer
         let context = persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Deliverable>(entityName: "Deliverable")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Deliverable")
+        
+        // Create Batch Delete Request
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
-            let results = try context.fetch(fetchRequest)
-            for i in results {
-                context.delete(i)
-            }
+            try context.execute(batchDeleteRequest)
         } catch let error {
             print("Could not fetch \(error.localizedDescription)")
         }
