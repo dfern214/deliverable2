@@ -19,7 +19,24 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var gender: UIPickerView!
     @IBOutlet weak var dateOfBirth: UIDatePicker!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var test: UILabel!
+   
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    
+    @IBAction func cancelButtonClick(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Warning", message: "You have canceled user entry", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("The \"OK\" alert occured.")}))
+        self.present(alert, animated: true, completion: nil)
+        
+        firstBox.text = ""
+        lastBox.text = ""
+        gender.selectRow( 0, inComponent: 0, animated: true)
+        dateOfBirth.setDate(dateOfBirth.maximumDate!, animated: true)
+    }
+    
+    
     @IBAction func submitButtonClick(_ sender: Any) {
         do {
             var valid = true
@@ -68,6 +85,10 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             if valid{
                 coreData.insertNewObject(first: first, last: last, birthday: dateOfBirth.date, gender: selectedGender)
+                
+                firstBox.text = ""
+                lastBox.text = ""
+                gender.reloadAllComponents()
             }
         }
         catch {

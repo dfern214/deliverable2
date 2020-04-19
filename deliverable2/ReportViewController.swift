@@ -35,17 +35,7 @@ class ReportViewController: UIViewController {
         
     }
     
-    func test()
-    {
-        let birthDate = Date().addingTimeInterval(-93113904)
-        let today = Date()
-        
-        let components = Calendar.current.dateComponents([.year, .month, .day], from: birthDate, to: today)
-        
-        let age = components.year
-        
-        lblDaily.text = "\(age!)"
-    }
+ 
     
     func calculations()
     {
@@ -91,7 +81,13 @@ class ReportViewController: UIViewController {
             deliCount = deliCount + 1
         }
         
-        let ageAvg = ageTemp / deliCount
+        var ageAvg = 0
+        if deliCount > 0
+        {
+            ageAvg = ageTemp / deliCount
+        }
+       
+        
         
         lblDaily.text = "\(dailyTotal)"
         lblMale.text = "\(maleTotal)"
