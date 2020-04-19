@@ -13,13 +13,14 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
     
     static let shared = CoreData()
     
-    var idCounter: Int16 = 0
+   // var idCounter: Int16 = 0
     var _fetchedResultsController: NSFetchedResultsController<Deliverable>? = nil
-    
+    var managedObjectContext: NSManagedObjectContext? = nil
     
     override init() {
         super.init()
-        idCounter = getId()
+        //idCounter = getId()
+        //idCounter.advanced(by: 1)
     }
     
     var fetchedResultsController: NSFetchedResultsController<Deliverable> {
@@ -35,7 +36,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
         
         fetchRequest.fetchBatchSize = 20
         
-        let sortDescriptor = NSSortDescriptor(key: "firstName", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "id", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -45,6 +46,9 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
         
         do {
             try _fetchedResultsController!.performFetch()
+            for i in _fetchedResultsController!.fetchedObjects! {
+                print(i.id?.description)
+            }
         } catch {
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -89,7 +93,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
             
             // If appropriate, configure the new managed object.
             //newDeliverable.isIn = true
-            newDeliverable.id = idCounter.advanced(by: 1)
+            newDeliverable.id = Date()
             newDeliverable.firstName = first
             newDeliverable.lastName = last
             newDeliverable.birthdate = birthday
@@ -104,7 +108,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
     }
-
+    /*
     func retrieveObject(customerId: Int) -> Deliverable {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let persistentContainer = appDelegate.persistentContainer
@@ -139,10 +143,10 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
         
         do {
             let results = try context.fetch(fetchRequest)
-            print(results.count.description)
             for i in results {
                 if (i.id > largestId) {
                     largestId = i.id
+                    print(largestId)
                 }
             }
         } catch let error {
@@ -151,7 +155,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
         
         return largestId
     }
-    
+    */
     func getAll() -> [Any] {
         var objects: [Deliverable] = []
         

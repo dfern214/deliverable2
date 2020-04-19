@@ -5,28 +5,27 @@
 //  Created by Christopher Bello on 4/17/20.
 //  Copyright © 2020 Dylan Fernandez. All rights reserved.
 //
-
+import CoreData
 import UIKit
 
 class ClientCell: UITableViewCell {
     
-   // let coreData = CoreData.shared
+   let coreData = CoreData.shared
     
-   // let tableView = WaitingListViewController.shared
+   let tableView = WaitingListViewController.shared
     
     @IBOutlet weak var place: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var checkInButton: UIButton!
     
-    /*
     @IBAction func buttonPress(sender: UIButton) {
         let cell = sender.superview?.superview as! UITableViewCell
         let indexPath = tableView.tableView.indexPath(for: cell)
         
-        let object = coreData.retrieveObject(customerId: indexPath!.row)
+        //let object = coreData.retrieveObject(customerId: indexPath!.row)
         
-        object.isIn = false
+        //object.isIn = false
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let persistentContainer = appDelegate.persistentContainer
@@ -34,7 +33,7 @@ class ClientCell: UITableViewCell {
         
         do {
             try context.save()
-            print(object.isIn.description)
+           // print(object.isIn.description)
         } catch {
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
@@ -42,7 +41,6 @@ class ClientCell: UITableViewCell {
         
         tableView.tableView.reloadData()
     }
-    */
 }
 
 class HeaderCell: UITableViewCell {
@@ -56,11 +54,12 @@ class WaitingListViewController: UITableViewController {
     var coreData = CoreData.shared
     
     static let shared = WaitingListViewController()
-    /*
-     override func numberOfSections(in tableView: UITableView) -> Int {
-     return coreData.fetchedResultsController.sections?.count ?? 0
-     }
-     */
+    
+    var managedObjectContext: NSManagedObjectContext? = nil
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return coreData.fetchedResultsController.sections?.count ?? 0
+    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
@@ -73,7 +72,8 @@ class WaitingListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coreData.getAll().count
+        let sectionInfo = coreData.fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,7 +102,6 @@ class WaitingListViewController: UITableViewController {
         self.tableView.register(ClientCell.self as AnyClass, forCellReuseIdentifier: "cell")
         self.tableView.register(HeaderCell.self as AnyClass, forCellReuseIdentifier: "cell")
         tableView.reloadData()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
