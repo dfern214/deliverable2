@@ -8,8 +8,9 @@
         <attribute name="isIn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeIn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="timeRemaining" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Deliverable" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Deliverable" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

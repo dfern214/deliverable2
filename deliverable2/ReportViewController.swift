@@ -86,8 +86,6 @@ class ReportViewController: UIViewController {
         {
             ageAvg = ageTemp / deliCount
         }
-       
-        
         
         lblDaily.text = "\(dailyTotal)"
         lblMale.text = "\(maleTotal)"

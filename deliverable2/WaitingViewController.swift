@@ -86,7 +86,7 @@ class WaitingListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
         let deliverable = coreData.fetchedResultsController.object(at: indexPath)
         
-        configureCell(cell, deliverable: deliverable)
+        configureCell(cell, deliverable: deliverable, indexPath: indexPath, numberOfObjects: coreData.getAll().count)
         
         return cell
     }
@@ -119,20 +119,34 @@ class WaitingListViewController: UITableViewController {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+            
+            coreData.fetchedResultsController.object(at: indexPath).timeRemaining = String(coreData.getAll().count * 5)
+            
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
         tableView.reloadData()
+        
     }
     
-    func configureCell(_ cell: ClientCell, deliverable: Deliverable) {
+    func configureCell(_ cell: ClientCell, deliverable: Deliverable, indexPath: IndexPath, numberOfObjects: Int) {
+        //let sectionInfo = coreData.fetchedResultsController.sections![section]
+        
         cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
-        //cell.place?.text = String(tableView.indexPath(for: cell as UITableViewCell)!.row)
-        cell.time?.text = "test"
+        cell.place?.text = String(indexPath.row + 1)
+        cell.time?.text = deliverable.timeRemaining
         /*} else {
             let newCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
             return newCell
         }*/
     }
-    
+    /*
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -165,4 +179,5 @@ class WaitingListViewController: UITableViewController {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+ */
 }

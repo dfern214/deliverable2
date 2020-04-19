@@ -98,6 +98,7 @@ class CoreData: NSObject, NSFetchedResultsControllerDelegate {
             newDeliverable.lastName = last
             newDeliverable.birthdate = birthday
             newDeliverable.gender = gender
+            newDeliverable.timeRemaining = String(self.getAll().count * 5)
         }
         
         // Save the context.
