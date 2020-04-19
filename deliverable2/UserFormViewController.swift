@@ -19,6 +19,7 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var lastBox: UITextField!
     @IBOutlet weak var gender: UIPickerView!
     @IBOutlet weak var dateOfBirth: UIDatePicker!
+    
     @IBOutlet weak var submitButton: UIButton!
    
     @IBOutlet weak var cancelButton: UIButton!
