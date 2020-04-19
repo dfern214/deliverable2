@@ -10,8 +10,10 @@ import UIKit
 
 class ClientCell: UITableViewCell {
     
+    //share coredara component
    let coreData = CoreData.shared
     
+    //create table view using WaitingListViewController
    let tableView = WaitingListViewController.shared
     
     @IBOutlet weak var place: UILabel!
@@ -23,11 +25,10 @@ class ClientCell: UITableViewCell {
         let cell = sender.superview?.superview as! UITableViewCell
         let indexPath = tableView.tableView.indexPath(for: cell)
         
-        //let object = coreData.retrieveObject(customerId: indexPath!.row)
-        
-        //object.isIn = false
-        
+        //create app delegate reference
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        //
         let persistentContainer = appDelegate.persistentContainer
         let context = persistentContainer.viewContext
         
@@ -124,8 +125,12 @@ class WaitingListViewController: UITableViewController {
     }
     
     func configureCell(_ cell: ClientCell, deliverable: Deliverable) {
+        
+        
         cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
         //cell.place?.text = String(tableView.indexPath(for: cell as UITableViewCell)!.row)
+        
+        
         cell.time?.text = "test"
         /*} else {
             let newCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
