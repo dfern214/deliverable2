@@ -86,11 +86,11 @@ class UserFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // testing
         
-        var name: Int16 = 0
+        //var name: Int16 = 0
         //coreData.removeAll()
         //coreData.insertNewObject(first: "Ricky", last: "Martin", birthday: Date().addingTimeInterval(-93122222), gender: "Male")
-        name = coreData.getId()
-        test?.text = name.description
+        //name = coreData.getId()
+        //test?.text = name.description
     }
     
     override func didReceiveMemoryWarning() {
