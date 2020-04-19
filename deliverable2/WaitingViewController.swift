@@ -57,46 +57,6 @@ class WaitingListViewController: UITableViewController {
     
     var managedObjectContext: NSManagedObjectContext? = nil
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return coreData.fetchedResultsController.sections?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
-        
-        headerCell.nameTitle.setTitle("Name", for: .normal)
-        headerCell.placeTitle.setTitle("Place", for: .normal)
-        headerCell.timeTitle.setTitle("Time Remaining", for: .normal)
-        
-        return headerCell
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = coreData.fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
-        let deliverable = coreData.fetchedResultsController.object(at: indexPath)
-        
-        print()
-        
-        configureCell(cell, deliverable: deliverable, indexPath: indexPath)
-        
-        return cell
-    }
-    
-    func configureCell(_ cell: ClientCell, deliverable: Deliverable, indexPath: IndexPath) {
-        cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
-        cell.place?.text = String(indexPath.row + 1)
-        cell.time?.text = "test"
-        /*} else {
-            let newCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
-            return newCell
-        }*/
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(ClientCell.self as AnyClass, forCellReuseIdentifier: "cell")
@@ -111,5 +71,98 @@ class WaitingListViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return coreData.fetchedResultsController.sections?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionInfo = coreData.fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientCell
+        let deliverable = coreData.fetchedResultsController.object(at: indexPath)
+        
+        configureCell(cell, deliverable: deliverable)
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
+        
+        headerCell.nameTitle.setTitle("Name", for: .normal)
+        headerCell.placeTitle.setTitle("Place", for: .normal)
+        headerCell.timeTitle.setTitle("Time Remaining", for: .normal)
+        
+        return headerCell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let context = coreData.fetchedResultsController.managedObjectContext
+            context.delete(coreData.fetchedResultsController.object(at: indexPath))
+            
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    func configureCell(_ cell: ClientCell, deliverable: Deliverable) {
+        cell.name?.text = deliverable.firstName! +  " " + String(deliverable.lastName!.first!) + "."
+        //cell.place?.text = String(tableView.indexPath(for: cell as UITableViewCell)!.row)
+        cell.time?.text = "test"
+        /*} else {
+            let newCell = tableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath)
+            return newCell
+        }*/
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+        default:
+            return
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            configureCell(tableView.cellForRow(at: indexPath!) as! ClientCell, deliverable: anObject as! Deliverable)
+        case .move:
+            configureCell(tableView.cellForRow(at: indexPath!) as! ClientCell, deliverable: anObject as! Deliverable)
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 }
